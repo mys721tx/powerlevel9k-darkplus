@@ -16,9 +16,29 @@ Works with [Powerlevel10k](https://github.com/romkatv/powerlevel10k) too.
 
 ```zsh
 ...
+# Use a custom function to pass more options.
+_config_powerline_custom() {
+        POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
+                context
+                dir
+                dir_writable
+                vcs
+        )
+
+        POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
+                status
+                root_indicator
+                background_jobs
+                history
+        )
+
+        POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+}
+
 zplugin light mys721tx/powerlevel9k-darkplus
-zplugin ice atinit"_config_powerline"
+zplugin ice atinit"_config_powerline;_config_powerline_custom"
 zplugin light romkatv/powerlevel10k
+...
 ```
 
 ## License
